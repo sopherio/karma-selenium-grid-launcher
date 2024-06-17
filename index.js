@@ -411,11 +411,10 @@ var SeleniumGridInstance = function (name, args, logger, baseLauncherDecorator,
       }
     };
     const stopSession = (err) => {
-      return new Promise((startPromiseResolve, startPromiseReject) => {
+      return new Promise(resolve => {
         this._stopSession(end, err).then(() => {
           clearInterval(killInterval);
           resolve('shutting down');
-          startPromiseReject('shutting down');
         });
       });
     };
